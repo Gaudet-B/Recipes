@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Recipes</title>
+</head>
+<body>
+    <div class="container d-flex flex-column my-5 bg-success rounded text-light" style="width: 80%; margin: auto; max-width: 500px;">
+        <div class="d-flex flex-row justify-content-between">
+            <h2>Welcome {{ user[0]['first_name'] }}!</h2>
+            <div class="d-flex flex-row justify-content-between" style="width: 120px;">
+                <a href="/recipes/new" class="text-light">Create</a> |
+                <a href="/users/logout" class="text-light">Logout</a>
+            </div>
+        </div>
+        <h3>Garlic Bread</h3>
+        <div class="border rounded border-light m-1 p-3">
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="row">Description:</th>
+                        <td>{{ recipe[0]['description'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Under 30 Minutes:</th>
+                        <td>{{ recipe[0]['under_30'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Instructions:</th>
+                        <td>{{ recipe[0]['instructions'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date Made:</th>
+                        <td>{{ recipe[0]['created_at'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

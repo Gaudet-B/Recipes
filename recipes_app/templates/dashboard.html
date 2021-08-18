@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Recipes</title>
+</head>
+<body>
+    <div class="container d-flex flex-column my-5 bg-success rounded text-light" style="width: 80%; margin: auto">
+        <div class="d-flex flex-row justify-content-between">
+            <h2>Welcome {{ user[0]['first_name'] }}!</h2>
+            <div class="d-flex flex-row justify-content-between" style="width: 120px;">
+                <a href="/recipes/new" class="text-light">Create</a> <p class=text-light> | </p> <a href="/users/logout" class="text-light">Logout</a>
+            </div>
+        </div>
+        <div class="d-flex flex-column my-5">
+            <h6>These are your recipes.</h6><br>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Under 30 Minutes?</td>
+                        <td>Actions</td>
+                    </tr>
+                    {% for recipe in recipes: %}
+                    <tr>
+                        <td>{{recipe['name']}}</td>
+                        <td>{{recipe['under_30']}}</td>
+                        <td>
+                            <a href="/recipes/{{recipe['id']}}" class="text-light">view instructions</a>|
+                            <a href="/recipes/edit/{{recipe['id']}}" class="text-light">edit</a>|
+                            <a href="/recipes/delete/{{recipe['id']}}" class="text-light">delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </thead>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
